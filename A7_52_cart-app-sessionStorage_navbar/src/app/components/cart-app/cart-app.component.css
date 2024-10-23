@@ -1,0 +1,10 @@
+#divCartAppComp {
+    height: 100%;
+}
+
+#divAppComp {
+    height: 100%; 
+    margin: 0px auto; 
+    width: 70%; 
+    padding: 0;
+}

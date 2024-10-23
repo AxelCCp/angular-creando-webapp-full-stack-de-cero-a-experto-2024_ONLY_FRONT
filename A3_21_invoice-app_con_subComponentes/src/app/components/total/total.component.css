@@ -1,0 +1,19 @@
+#divTotalInvoice {
+    border-radius: 10px; 
+    width: 150px; 
+    height: 50px;
+}
+
+#spanTotalInvoice {
+    color: rgb(127, 136, 255);
+    font-size: large; 
+    line-height: 50px;
+    font-weight: bold;
+}
+
+#spanSignoPrecio {
+    color: rgb(179, 179, 179);
+    font-size: large; 
+    line-height: 50px;
+    font-weight: bold;
+}

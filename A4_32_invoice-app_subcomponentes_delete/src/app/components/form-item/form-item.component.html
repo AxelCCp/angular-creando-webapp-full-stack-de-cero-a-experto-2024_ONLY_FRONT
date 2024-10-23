@@ -1,0 +1,80 @@
+<h5 class="text-secondary">Add a new invoice item:</h5>
+<div class="bg-dark border border-secondary" id="divFormItems">
+
+    <form id="formItems" (ngSubmit)="onSubmit(itemForm)" #itemForm="ngForm"> <!--#itemForm="ngForm" :  es para deshabilitar el boton de enviar, cuando no se cumplan las validaciones de los input. #itemForm es una instancia del ngForm. Con esto podemos usar la instancia #itemForm en el boton para deshabilitarlo. -->
+
+        <div class="row mt-3">
+            <div class="col-2 text-secondary ms-3">
+                <span>Product: </span>
+            </div>
+            <div class="col-9 text-secondary">
+                <input name="product" placeholder="Product" class="form-control bg-dark border border-secondary text-primary" [(ngModel)]="item.product" required minlength="5" #product="ngModel">
+                
+                @if(product.invalid && (product.dirty || product.touched)) {
+                    @if(product.errors!['required']) {                              <!-- el ['required'] podría no existir dentro del errors, por lo tanto se usa "!" -->
+                        <div class="text-danger">
+                            The product name is required!
+                        </div>
+                    }
+                    @if(product.errors!['minlength']) {
+                        <div class="text-danger">
+                            The product name should be has at least five characters!
+                        </div>
+                    }
+                }
+                
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-2 text-secondary ms-3">
+                <span>Price: </span>
+            </div>
+            <div class="col-4 text-secondary">
+                <input id="" name="price" placeholder="Price" class="form-control bg-dark border border-secondary text-primary" [(ngModel)]="item.price" required min="10" #price="ngModel" type="number">
+                
+                @if(price.invalid && (price.dirty || price.touched)) {
+                    @if(price.errors!['required']) {
+                        <div class="text-danger">
+                            The product price is required!
+                        </div>
+                    }
+                    @if(price.errors!['min']) {
+                        <div class="text-danger">
+                            The product price should be has at least of 10 dollars!
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-2 text-secondary ms-3">
+                <span>Quantity: </span>
+            </div>
+            <div class="col-4 text-secondary">
+                <input id="" name="quantity" placeholder="Quantity" class="form-control bg-dark border border-secondary text-primary" [(ngModel)]="item.quantity" required min="1" #quantity="ngModel" type="number">
+           
+                @if(quantity.invalid && (quantity.dirty || quantity.touched)) {
+                    @if(quantity.errors!['required']) {
+                        <div class="text-danger">
+                            The product quantity is required!
+                        </div>
+                    }
+                    @if(quantity.errors!['min']) {
+                        <div class="text-danger">
+                            The product quantity should be has at least of 1 unit!
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+        
+        <div>
+            <button class="btn btn-outline-primary mt-4 ms-3 mb-2" [disabled]="itemForm.invalid">New item</button>
+        </div>
+    </form>
+
+</div>

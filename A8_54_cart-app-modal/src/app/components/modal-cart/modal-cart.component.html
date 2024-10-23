@@ -1,0 +1,25 @@
+ <div class="abrir-modal animacion fadeIn">
+                <div class="modal" style="display: block; margin-top: 200px;" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        
+                        <div class="modal-content">
+                            
+                            <div class="modal-header bg-dark border border-dark">
+                                <h5 class="modal-title"><span class="moonText">Your cart</span></h5>    
+                            </div>
+                            
+                            <div class=" modal-body bg-dark border border-dark">
+                                @if (items.length > 0) {
+                                    <app-cart [items] = "items" (idProductEventEmitter)="onDeleteCart($event)" [total]="total"/>
+                                } @else {
+                                    <div class="h5 mt-5 bg-dark border border-secondary rounded mudText myAlerts">Your shopping cart is empty yet!</div>
+                                }
+                            </div>
+
+                            <div class=" modal-footer bg-dark border-dark">
+                                <button type="button" class="btn btn-dark border border-secondary text-secondary" data-dismiss="modal" (click)="closeCart()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

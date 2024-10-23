@@ -1,0 +1,20 @@
+html, body{
+    height:100%;
+    width: 100%;
+    /*background: rgb(59, 59, 59);*/
+    background: url('./app/img/5162027.jpg');
+    background-attachment: fixed;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+#des {
+    color: rgb(209, 209, 209);
+}
+
+#val {
+    color: rgb(156, 48, 228);
+}
+  

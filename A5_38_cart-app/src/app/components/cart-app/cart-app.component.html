@@ -1,0 +1,16 @@
+
+<div id="divCartAppComp">
+    
+    <h2 class="mt-5 moonText">Cart application / online purchases / demo</h2>
+
+    <app-catalog [products] = "products" (productEventEmmiter)="onAddCart($event)"/>
+
+    @if (items.length > 0) {
+        <app-cart [items] = "items" (idProductEventEmitter)="onDeleteCart($event)" [total]="total"/>
+    } @else {
+        <div class="h5 mt-5 bg-dark border border-secondary rounded mudText myAlerts">
+           Your shopping cart is empty yet!
+        </div>
+    }
+
+</div>  

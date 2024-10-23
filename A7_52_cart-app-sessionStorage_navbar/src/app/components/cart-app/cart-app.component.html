@@ -1,0 +1,38 @@
+
+<div id="divCartAppComp">
+
+    <app-navbar [items]="items" (openEventEmmiter)="openCart()" [showCart]="showCart"/>
+
+    <div id="divAppComp">
+
+        <div class="row">
+            
+            <div [className]="showCart ? 'col-8' : 'col' ">
+                <h2 class="mt-5 moonText">Cart application / online purchases / demo</h2>
+                <app-catalog [products] = "products" (productEventEmmiter)="onAddCart($event)"/>
+            </div>
+
+            @if(showCart){
+                <div class="col-4">
+                    @if (items.length > 0) {
+                        <app-cart [items] = "items" (idProductEventEmitter)="onDeleteCart($event)" [total]="total"/>
+                    } @else {
+                        <br> <br>
+                        <div class="h5 mt-5 bg-dark border border-secondary rounded mudText myAlerts">
+                        Your shopping cart is empty yet!
+                        </div>
+                    }
+                </div>
+            }
+        
+        </div>
+
+
+    </div>
+   
+
+    <footer class="bloodText border border-dark">
+        Developed with Angular, Bootstrap, css, etc. ... &copy;
+    </footer>
+
+</div>  

@@ -1,0 +1,29 @@
+
+<div id="divCartAppComp">
+
+    <app-navbar [items]="items" (openEventEmmiter)="openCloseCart()" [showCart]="showCart"/>
+
+    <div id="divAppComp">
+
+        <h2 class="mt-5 moonText">Cart application / online purchases / demo</h2>
+        <app-catalog [products] = "products" (productEventEmmiter)="onAddCart($event)"/>
+
+        @if(showCart){
+
+           <app-modal-cart [items]="items" [total]="total" (idProductEventEmitter)="onDeleteCart($event)" (closeEventEmmiter)="openCloseCart()"/>
+        
+        }
+        
+            
+                
+            
+        
+
+    </div>
+   
+
+    <footer class="bloodText border border-dark">
+        Developed with Angular, Bootstrap, css, etc. ... &copy;
+    </footer>
+
+</div>  

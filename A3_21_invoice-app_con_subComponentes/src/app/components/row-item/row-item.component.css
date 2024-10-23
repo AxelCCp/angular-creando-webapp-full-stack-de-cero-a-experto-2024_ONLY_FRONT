@@ -1,0 +1,14 @@
+#spanTotalItem {
+    color: rgb(127, 136, 255);
+    font-size: medium; 
+}
+
+#spanSignoPrecioItem {
+    color: rgb(179, 179, 179);
+    font-size: medium; 
+}
+
+
+#tdPrice {
+    text-align: right;
+}

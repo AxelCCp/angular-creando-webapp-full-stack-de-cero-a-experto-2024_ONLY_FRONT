@@ -1,0 +1,28 @@
+#ctn1 {
+    background: rgb(43, 43, 43);
+}
+
+h2 {
+    color: rgb(226, 43, 43);
+}
+
+h5 {
+    color:  rgb(206, 206, 206);
+}
+
+li {
+ background: rgb(37, 39, 146);
+ border-color: rgb(37, 39, 146);
+ color: rgb(224, 224, 224);
+}
+
+#divTable {
+    /*background: rgb(182, 182, 182);*/
+    border-radius: 10px;
+}
+
+table {
+    background: rgb(165, 165, 165);
+    border-radius: 10px;
+    width: 100%;
+}

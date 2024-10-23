@@ -1,0 +1,28 @@
+<h5 class="text-secondary">Invoice detail:</h5>
+<div id="divTableInv" class="border border-secondary">
+
+    @if(items.length > 0) {
+        <table id="tableInv" class="text-center table table-dark">
+            <thead>
+                <tr>
+                    <th>Remove</th>
+                    <th>Sku</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total item</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of items; track $index) {
+                    
+                    <tr app-row-item [item]="item"  (removeEventEmitter)="onRemove($event)"></tr>            <!--29 asi se usan los tr. en el componente row tmbn se hace referencia al tr en la etiqueta-->
+                }
+            </tbody>
+        </table>
+    } @else {
+        <!--<span class="alert alert-warning">The invoice has no items!</span>-->
+        <div class="text-warning text-center">The invoice has no items!</div>
+    }
+
+</div>  

@@ -1,0 +1,109 @@
+
+<!--93-->
+<form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">    <!-- #userForm : se esporta el formulario para poder validar el bloqueo del boton guardar-->
+
+    <div>
+        <input type="text" name="name" class="form-control my-2" placeholder="name" [(ngModel)]="user.name" required #name="ngModel"> <!--// ngModel : para mapear el campo   // #name="ngModel" : de esta manera se exporta el valor ingresado y se puede validar-->
+    
+        @if(name.invalid && (name.dirty || name.touched)){
+        
+            @if(name.errors!['required']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the name is required</span>
+                </div>
+            }
+            
+        }
+    </div>
+
+
+    <div>
+        <input type="text" name="lastname" class="form-control my-2" placeholder="lastname" [(ngModel)]="user.lastname" required #lastname="ngModel">
+
+        @if(lastname.invalid && (lastname.dirty || lastname.touched)){
+        
+            @if(lastname.errors!['required']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the lastname is required</span>
+                </div>
+            }
+            
+        }
+    </div>
+
+
+    <div>
+        <input type="email" name="email" class="form-control my-2" placeholder="email" [(ngModel)]="user.email" required email #email="ngModel">
+
+        @if(email.invalid && (email.dirty || email.touched)){
+        
+            @if(email.errors!['required']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the email is required</span>
+                </div>
+            }
+
+            @if(email.errors!['email']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># invalid email format</span>
+                </div>
+            }
+            
+        }
+    </div>
+
+
+    <div>
+        <input type="text" name="username" class="form-control my-2" placeholder="username" [(ngModel)]="user.username" required minlength="5" #username="ngModel">
+
+        @if(username.invalid && (username.dirty || username.touched)){
+        
+            @if(username.errors!['required']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the username is required</span>
+                </div>
+            }
+
+            @if(username.errors!['minlength']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the username must have at least 5 characters</span>
+                </div>
+            }
+            
+        }
+    </div>
+
+
+    <div>
+        <input type="password" name="password" class="form-control my-2" placeholder="password" [(ngModel)]="user.password" required minlength="5" #password="ngModel">
+
+        @if(password.invalid && (password.dirty || password.touched)){
+        
+            @if(password.errors!['required']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the password is required</span>
+                </div>
+            }
+
+            @if(password.errors!['minlength']) {
+                <div class="text-danger divError">
+                    <span class="spanError"># the username must have at least 5 characters</span>
+                </div>
+            }
+            
+        }
+    </div>
+
+    <div class="row">
+
+        <div class="col-1">
+            <button type="submit" class="btn btn-warning btn-lg text-white border border-white my-4" [disabled]="userForm.invalid">{{user.id > 0 ? 'Update' : 'Create'}}</button>
+        </div>
+    
+        <div class="col-1">
+            <button type="button" class="btn btn-info btn-lg text-white border border-white my-4" (click)="onClear(userForm)">Clean</button>
+        </div>
+
+    </div>  
+
+</form>

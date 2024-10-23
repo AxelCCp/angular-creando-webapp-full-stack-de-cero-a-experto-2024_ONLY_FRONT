@@ -1,0 +1,40 @@
+<div class="container">
+    <div id="ctn1" class="card my-3">
+        <div id="divHeaderTitle" class="card-header">
+            <h2>Billing and registration system</h2>
+        </div>
+        
+        <div class="card-body">
+           
+            <app-invoice-view [id]="invoice.id" [name]="invoice.name"/>
+        
+            <div class="row my-3">
+
+                <div class="col">
+                    <app-client-view [client]="invoice.client"/>
+                </div>
+
+                <div class="col">(
+                    <app-company-view [company]="invoice.company"/>
+                </div>
+
+            </div>
+
+            <div class="mt-3 mb-3 " id="divTable">
+               <app-list-items [items]="invoice.items" (removeEventEmitter)="removeItem($event)"/>
+            </div>
+
+            <div id="divTotal">
+                <app-total [total]="invoice.total"/>
+            </div>
+
+        </div>
+
+        <div class="card-body">
+            <div>
+                <app-form-item (addItemEventEmitter)="addItem($event)"/>
+            </div>
+        </div>
+
+    </div>
+</div>

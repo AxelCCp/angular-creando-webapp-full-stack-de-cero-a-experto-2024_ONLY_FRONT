@@ -1,0 +1,66 @@
+<div class="container">
+    <div id="ctn1" class="card my-3">
+        <div class="card-header">
+            <h2>Invoice example</h2>
+        </div>
+        
+        
+        <div class="card-body">
+            <div class="my-3">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Id: {{invoice.id}}
+                    </li>
+                    <li class="list-group-item">
+                        Name: {{invoice.name}}
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="row my-3">
+
+                <div class="col">
+                    <h5>Datos de cliente</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">{{invoice.client.name}} {{invoice.client.lastname}}</li>
+                        <li class="list-group-item">{{invoice.client.address.country}} - {{invoice.client.address.city}}</li>
+                        <li class="list-group-item">{{invoice.client.address.street}} - {{invoice.client.address.number}}</li>
+                    </ul>   
+                </div>
+
+                <div class="col">
+                    <h5>Datos de la empresa</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">{{invoice.company.name}}</li>
+                        <li class="list-group-item">{{invoice.company.fiscalNumber}}</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-3 mb-3 " id="divTable">
+                <h5>Detalle de la factura</h5>
+                <table class="text-center">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>product</th>
+                            <th>price</th>
+                            <th>quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of invoice.items; track $index) {
+                            <tr>
+                                <td>{{item.id}}</td>
+                                <td>{{item.product}}</td>
+                                <td>{{item.price}}</td>
+                                <td>{{item.quantity}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+
+<div>----------------------------------------13--------------------------------------</div>
+
+<h2> {{title}} </h2>
+
+<br>
+
+<div>Total: {{counter}}</div>
+
+<br>
+
+
+<button (click) = "setVisible()" > {{ visible ? 'Ocultar' : 'Mostrar' }}</button>
+
+@if(visible) {
+
+<h4>tabla</h4>
+
+  @if(users != undefined && users.length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track $index) {
+          <tr>
+            <td>{{$index + 1}}</td>
+            <td>{{user}}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>No existe registro en el sistema</p>
+  } 
+
+} @else {
+  <h2>No está disponible la pagina</h2>
+}
+
+<br> <br>
+
+<div>---------------------15-----------------------</div>
+
+<app-counter [title]="subTitle" (counterEmit)="setCounter($event)"></app-counter>

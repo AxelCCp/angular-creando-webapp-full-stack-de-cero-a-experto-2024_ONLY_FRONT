@@ -1,0 +1,9 @@
+
+    <div class="card bg-dark border border-secondary">
+        <div class="card-body">
+            <h5 class="card-title whiteCloudNightText">{{product.name}}</h5>
+            <p class="card-text bloodText">{{product.description}}</p>
+            <h4 class="card-text bloodText">${{product.price}}</h4>
+            <button class="btn btn-outline-secondary" (click)="onAddCart(product)">Add to cart</button>
+        </div>
+    </div>

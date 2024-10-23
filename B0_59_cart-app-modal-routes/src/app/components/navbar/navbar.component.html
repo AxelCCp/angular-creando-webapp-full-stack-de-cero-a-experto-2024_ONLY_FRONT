@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark nigthBackground border border-secondary rounded mt-2" >
+    <a class="navbar-brand" style="padding-left: 20px;"><span class="whiteCloudNightText">Cart Application demo router</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
+        <div class="navbar-nav">
+            
+            <a class="nav-item nav-link" [routerLink]="['/catalog']">
+                <span class="starColorText">Catalog</span>
+            </a>
+
+            <a class="nav-item nav-link active" [routerLink]="['/cart']" [state]="{items:items, total:total}">
+                <span class="starColorText">Show cart</span>
+                <span class="whiteCloudNightText">({{items.length}})</span>
+            </a>
+           
+        </div>
+    </div>
+</nav>

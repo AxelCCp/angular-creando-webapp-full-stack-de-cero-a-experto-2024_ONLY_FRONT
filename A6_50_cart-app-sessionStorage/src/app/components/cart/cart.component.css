@@ -1,0 +1,9 @@
+#divTableCart { 
+    border-radius: 10px;
+    border-color: rgb(184, 39, 39);
+}
+
+table {
+    width: 98%; 
+    margin: 0px auto;
+}

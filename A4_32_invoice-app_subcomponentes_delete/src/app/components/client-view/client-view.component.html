@@ -1,0 +1,12 @@
+<h5 class="text-secondary">Client information:</h5>
+<ul class="list-group border border-secondary">
+    <li class="list-group-item text-white bg-dark border border-dark" >
+        <span id="des">Fullname: </span> <span id="val">{{client.name}} {{client.lastname}}</span>
+    </li>
+    <li class="list-group-item text-white bg-dark border border-dark">
+        <span id="des">Country / State: </span> <span id="val">{{client.address.country}} - {{client.address.city}}</span>
+    </li>
+    <li class="list-group-item text-white bg-dark border border-dark">
+        <span id="des">Address: </span> <span id="val">{{client.address.street}} - {{client.address.number}}</span>
+    </li>
+</ul>   

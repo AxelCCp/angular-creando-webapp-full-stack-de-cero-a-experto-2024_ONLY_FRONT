@@ -1,0 +1,37 @@
+
+<div id="">
+
+    <div class="container my-5" id="">
+
+        <div class="divTitleH3">
+            <h3 class="my-1 m-3">{{title}}</h3>
+        </div>
+        
+        <button class="btn btn-primary my-3" (click)="setOpen()">
+            {{open == true ? 'Close form' : 'Create new user'}}
+        </button>
+
+        <div class="row">
+
+            @if(open) {
+                <div class="col">
+                    <form-user (newUserEventEmitter)="addUser($event)" [user]="userSelected"/>
+                </div>
+            } @else {
+                <div class="col mt-2">
+                    <user [users]="users" (idUserEventEmitter)="removeUser($event)" (selectedUserEventEmitter)="setSelectedUser($event)"/>
+                </div>
+            }
+            
+        </div>
+    </div>  
+
+
+    <footer>
+        <span class="spanFooter">Developed with Angular, Bootstrap, css, etc. ... &copy;</span>
+    </footer>
+
+
+</div>
+
+

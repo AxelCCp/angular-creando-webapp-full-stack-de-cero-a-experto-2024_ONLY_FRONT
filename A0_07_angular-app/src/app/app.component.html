@@ -1,0 +1,136 @@
+<h2> {{title}} </h2>
+
+<div>----------------------------12---------------------------</div>
+
+<h4>tabla 1</h4>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>tabla 2</h4>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{user}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>tabla 3 - tabla vacía</h4>
+<table *ngIf="users2.length > 0">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users2; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{user}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>tabla 4 - tabla indefinida</h4>
+<table *ngIf="users3 != undefined && users3.length > 0">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users2; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{user}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>tabla 4 - tabla indefinida con etiqueta isEmpty</h4>
+<table *ngIf="(users3 != undefined && users3.length > 0) else isEmpty">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users2; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{user}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #isEmpty>
+  <div>
+    No existe registro en el sistema
+  </div>
+</ng-template>
+
+
+<div>----------------------------13-----------------------------</div>
+
+<h4>titulo oculto</h4>
+<div *ngIf="visible">
+  <h2> {{title}} </h2>
+</div>
+
+<h4>tabla oculta</h4>
+<div *ngIf="visible">
+  <table>
+    <thead>
+      <tr>
+        <th>name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h4>tabla oculta más etiqueta notEnable</h4>
+<div *ngIf="visible; else notEnable">
+  <table>
+    <thead>
+      <tr>
+        <th>name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<button (click) = "setVisible()" > {{ visible ? 'Ocultar' : 'Mostrar' }}</button>
+
+<ng-template #notEnable>
+  <div>
+    No esta disponible - etiqueta notEnable
+  </div>
+</ng-template>
